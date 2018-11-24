@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+     <title>Workers' salaries</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+     <script >
+         var workers = [];// prazan niz u pocetku
+
+        function addWorker(){
+            var firstName = document.getElementById('firstName').value;
+            var surname= document.getElementById('surname').value;
+            var sNumberOfWorkingYears = document.getElementById('wYears').value;
+            //uvodimo novu promenljivu, umesto numberOfWorkingYears
+            var fullName = surname + ' ' + firstName;
+            // fullName cemo napisati ispod svih unesenih vrednosti: ime, prezime, godine iskustva
+            var numberOfWorkingYears= parseInt(sNumberOfWorkingYears);
+            // prvo je bilo: var numberOfWorkingYears= parseInt(document.getElementById('wYears').value;
+            var education= (document.getElementById('education').value);
+            var salary = countSalary(numberOfWorkingYears, education);
+            if (!isValid(firstName, surname, sNumberOfWorkingYears)){// posle smo promenili ime varijabli, ali se na ovo odnosi
+                alert( 'Worker ' + firstName+ '  ' + surname + ' is not added ,your input is wrong' )
+                return;
+            }
+            //ako nema validnih inf nece nista uraditi, prekida
+            workers.push({ name: fullName, numberOfWorkingYears : numberOfWorkingYears , education: education, salary : salary});
+            // ubacuje nam nove podatke u niz
+            window.alert('Worker ' +firstName + '  ' + surname + '   is added.');
+
+        }
+        function countSalary(numberOfWorkingYears, education){
+            //return 500;
+            var baseSalary = 500;
+            var raise = baseSalary * 0.1 * numberOfWorkingYears;
+            var mainSalary= baseSalary + raise;
+            var coeficient = educationCoeficient( education);
+            return mainSalary* coeficient;
+             }
+         function educationCoeficient(education){
+             switch (education) {
+                 case 'faculty': return 1.2;
+                 case 'college': return 1.1;
+                default: return 1;//kad imamo return nije nam potreban break
+             }
+
+         }
+         function isValid(firName, sname, wYears) { //pravimo nove varijable?
+             if (firName.length == 0 || sname.length == 0 || wYears.length == 0) {
+                 return false;
+             } 
+             var n = parseInt(wYears);
+             if ( isNaN(n) || n < 0) {// vazan je redosled jer 0 ne moze da se poredi sa NaN, jer
+                //ako nije broj ili jeste broj ali manji od 0 onda je false
+                 return false;
+             }
+             return true;
+         }
+         function showWorkers(){
+             //var tableHtml = '<table><table-stripped><tr><th>Name</th><th>Salary</th></tr>';//?
+            var tableHtml = '<table class="table table-striped"><tr><th>Name</th><th>Salary</th></tr>';
+            workers.sort(function(w1, w2){ return w2.salary -w1.salary})
+                for (var i = 0; i < workers.length; i++){
+                    tableHtml += '<tr><td>' + workers[i].name + '</td>'
+                          + '<td>' + workers[i].salary.toFixed(2) + '</td></tr>';// da ga zaokruzi na 2 decimale
+                }
+                tableHtml += '</table>';//operacija nadovezivanja
+             document.getElementById('workers').innerHTML = tableHtml;
+             //document.write( tableHtml); Moze i ovako, ali bi ispisivao rezultate na drugoj stranici.
+
+         }
+     </script>
+    </head>
+    <body>
+        <div class="container">
+        <form>
+            <fieldset class="form-group">
+               <br> Name: <input type="text" id="firstName"><br>
+               </fieldset>
+               <fieldset class="form-group">   
+               Surname: <input type="text" id="surname"><br>
+            </fieldset>
+            <fieldset class="form-group">
+               Working experience: <input type="text" id="wYears"><br>
+               </fieldset>
+               <fieldset class="form-group">
+               Education: <select id="education">
+               <option value="faculty">Faculty</option>
+               <option value="college">College</option>
+              <option value="school">High school</option>
+        </select><br>
+        </fieldset>
+        <input type="button" value="Add worker" onclick="addWorker()" class="btn btn-success">
+        <input type="button" value="Show workers" onclick="showWorkers()" class="btn btn-warning">    
+        </form>
+        <div id="workers"></div>
+        </div>
+    </body>
+</html>
