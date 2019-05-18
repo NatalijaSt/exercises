@@ -13,7 +13,7 @@ function prethodna(){
         indeksSlike--;
     }
     document.getElementById('dog').src = 
-    'images/priroda' + indeks+ ".jfif";//ime foldera,fajla, dok se index sam dodaje
+    'images/priroda' + indeksSlike + ".jfif";//ime foldera,fajla, dok se index sam dodaje
 }
 function sledeca(){
 if (indeksSlike ==3){
