@@ -4,11 +4,125 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <script src="nature.js"></script>
-     <title>document</title>
+     <title>Nature Slider</title>
+    <style>
+        @media screen and (min-width: 801px) {
+            body {
+                background-color: rgb(223, 215, 223);
+            }
+    
+            h1 {
+                margin-left: 29%;
+            }
+    
+            #nature {
+                width: 60%;
+                height: 60vh;
+                margin-left: 20%;
+    
+            }
+    
+            #start {
+                width: 15vw;
+                height: 10vh;
+                text-align: center;
+                margin: 2vw 0 0 2vw;
+                font-size: large;
+            }
+    
+            #worker {
+                width: 15vw;
+                height: 10vh;
+                text-align: center;
+                margin: -10vh 0 0 80vw;
+                font-size: large;
+            }
+    
+            #input-p {
+                margin-left: 21%;
+                width: 17%;
+                height: 10vh;
+                color: orangered;
+                font-weight: bolder;
+            }
+    
+            #input-s {
+                margin-left: 24%;
+                width: 17%;
+                height: 10vh;
+                color: orangered;
+                font-weight: bolder;
+            }
+    
+            input:hover {
+                transform: scale(1.1);
+            }
+    
+            a:hover {
+                background-color: rgb(213, 247, 247);
+            }
+        }
+    
+        @media screen and (max-width: 800px) {
+            body {
+                background-color: rgb(223, 215, 223);
+                margin-left: 8%;
+            }
+    
+            h1 {
+                margin-left: 6%;
+            }
+    
+            #start {
+                width: 15vw;
+                height: 10vh;
+                text-align: center;
+                margin: 2vw 0 0 2vw;
+                font-size: large;
+            }
+    
+            #worker {
+                width: 15vw;
+                height: 10vh;
+                text-align: center;
+                margin: -10vh 0 0 70vw;
+                font-size: large;
+            }
+    
+            img {
+                display: block;
+                width: 80vw;
+                height: 50vh;
+                margin: 2%;
+            }
+    
+            input {
+                display: block;
+                width: 80vw;
+                height: 10vh;
+                margin: 2%;
+                color: orangered;
+                font-weight: bolder;
+                letter-spacing: 0.5rem;
+            }
+    
+            input:hover {
+                transform: scale(1.1);
+            }
+    
+            a:hover {
+                background-color: rgb(213, 247, 247);
+            }
+        }
+    </style>
     </head>
-    <body>
-       <img id="dog" style="width: auto; height: 50vh;" src="images/priroda1.jfif"><br>
-       <input type="button" onclick="prethodna()" value="Prethodna slika">
-       <input type="button" onclick="sledeca()" value="Sledeca slika">
+    <body >
+        <div id="start"><a href="../index.html">START PAGE</a></div>
+        <div id="worker"><a href="../workers.html">WORKERS' SALARIES</a></div>
+        <h1>NATURE IMAGES SLIDER</h1>
+       <!-- <img id="dog" style="width: auto; height: 50vh;" src="images/priroda1.jfif"><br> -->
+       <img id="nature"  src="images/priroda1.jfif"><br>
+       <input id="input-p" type="button" onclick="prethodna()" value="Prethodna slika">
+       <input id="input-s" type="button" onclick="sledeca()" value="Sledeca slika">
     </body>
 </html>
