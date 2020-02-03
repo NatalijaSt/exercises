@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercises</title>
+    <style>
+        body {
+            margin: 0 auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    
+        p {
+            font-size: 1.5rem;
+        }
+    
+        #nature:hover,
+        #workers:hover {
+            background-color: rgb(214, 228, 248);
+            transform: scale(1.1);
+        }
+    
+        #parent {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+    
+        #container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 40vh;
+            margin: auto;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+    
+        #workers {
+            background-color: rgb(231, 238, 248);
+            width: 40vw;
+        }
+    
+        #nature {
+            background-color: rgb(231, 238, 248);
+            width: 40vw;
+        }
+    
+        #intro {
+            background-color: rgb(245, 247, 233);
+            width: 85vw;
+            height: 40vh;
+            margin: auto;
+            text-align: center;
+            padding-top: 4%;
+            border-bottom: 0.4rem solid black;
+        }
+    
+        button {
+            /* width: inherit; */
+            width: 25%;
+            height: 5vh;
+            background-color: lawngreen;
+            margin: 10% 0;
+            border-radius: 1vw;
+        }
+    
+        @media screen and (max-width: 900px) {
+            #parent div {
+                width: 80vw;
+                margin: 1%;
+            }
+    
+            #intro,
+            #workers {
+                border-bottom: 3px dashed black;
+            }
+        }
+    
+        @media screen and (max-width: 400px) {
+            #intro {
+                padding: 30% 0;
+            }
+    
+            button {
+                width: 30%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+     <div id="intro">   
+    <h1>Exercises from JavaScript course</h1>
+    <br><p>These were two JavaScript exercises that
+     my colleagues and I were practising at the beginning of our JavaScript course.</p>
+    </div>
+     <div id="container">
+         <div id="workers">
+             <br><h2>Workers' Salaries</h2>
+             <br><p>Counting and showing salaries of workers based on their working experience and education.
+                <br>All fields must have valid inputs (for field "working experience" only valid input is number).
+             </p>
+             <a href="workers.html"><button> WORKERS</button></a>
+         </div>
+         <div id="nature">
+            <br><h2>Nature Images Slider</h2>
+            <br><br><p>Making a simple slider with images <br> of nature</p><br>
+            <a href="priroda/nature.html"><button>SLIDER</button></a>
+         </div>
+     </div>
+    </div>
+</body>
+</html>
