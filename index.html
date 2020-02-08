@@ -114,5 +114,15 @@
          </div>
      </div>
     </div>
+    <script>
+       let p = document.querySelector("#intro p");
+       console.log(p);
+       console.log("InnerWidth u pixelima je: " + window.innerWidth);
+       console.log("InnerHeight u pixelima je: " + window.innerHeight);
+       let h = window.innerHeight;
+       console.log(h);
+       h > 550 ? console.log("sve je u redu") 
+                     : console.log( "tekst je promenjen") || (p.style.display = "none");
+    </script>
 </body>
 </html>
